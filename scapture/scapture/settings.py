@@ -53,18 +53,39 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+CORS_ALLOW_METHODS = [  # 허용할 옵션
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
 
-CORS_ORIGIN_WHITELIST = [
-    "http://localhost:3000",
-    "http://172.20.10.3:3000",
+CORS_ALLOW_HEADERS = [ # 허용할 헤더
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+]
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOWED_ORIGINS = [
     "http://192.168.1.26:3000",
-    "http://192.168.1.26:3001",
-    "http://192.168.1.26:3002",
-    "http://192.168.1.26:3003",
-    "http://192.168.1.26:3004",
-    "http://192.168.1.26:3005",
-    "http://192.168.1.26:3006",
-    "http://192.168.1.26:3007",
+]
+
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    "http://192.168.1.26:3000",
+]
+
+CORS_ALLOW_ALL_ORIGINS: True
+CORS_ORIGIN_WHITELIST = [
+    "http://192.168.1.26:3000",
 ]
 
 ROOT_URLCONF = 'scapture.urls'

@@ -11,7 +11,10 @@ class VideoListAPIView(generics.ListAPIView):
 class VideoCreateAPIView(generics.CreateAPIView):
     queryset = Video.objects.all()
     serializer_class = VideoSerializer
-
-class TestListAPIView(generics.ListAPIView):
-    queryset = TestModel.objects.all()
-    serializer_class = TestModelSerializer
+    
+class GameListAPIView(generics.ListAPIView):
+    serializer_class = VideoSerializer
+    def get_queryset(self):
+        game_id = self.kwargs['game']
+        queryset = Video.objects.filter(game=game_id)
+        return queryset

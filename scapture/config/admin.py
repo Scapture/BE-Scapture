@@ -5,7 +5,7 @@ from .models import Video, TestModel
 # Register your models here.
 
 class VideoAdmin(admin.ModelAdmin):
-    list_display = ('video',)
+    list_display = ('id', 'game', 'video',)
 
 class TestModelAdmin(admin.ModelAdmin):
     list_display = ('text',)
